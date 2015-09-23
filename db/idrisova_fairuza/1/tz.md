@@ -22,7 +22,7 @@
 
 --------
 
-![ER-diagram](https://drive.google.com/file/d/0ByZEaI8z5rOyd3dTSTRwNFhMbjg/view?usp=sharing)
+[ER-diagram](https://github.com/Biruzka/09-308/blob/feature/db/idrisova_fairuza/2/mc.png)
 
 --------
 
