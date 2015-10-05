@@ -9,7 +9,7 @@ CREATE TABLE cities (
 CREATE TABLE airports (
   id      SERIAL PRIMARY KEY,
   name    VARCHAR(10) NOT NULL UNIQUE, -- 'SVO' - Шереметьево и т.д.
-  city_id INT         NOT NULL REFERENCES cities (id)
+  city_id INT         NOT NULL REFERENCES cities (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE plane_manufacturers (
@@ -19,7 +19,7 @@ CREATE TABLE plane_manufacturers (
 
 CREATE TABLE planes (
   id              SERIAL PRIMARY KEY,
-  manufacturer_id INT         NOT NULL REFERENCES plane_manufacturers (id),
+  manufacturer_id INT         NOT NULL REFERENCES plane_manufacturers (id) ON UPDATE CASCADE,
   model           VARCHAR(25) NOT NULL,
   seat_count      INT         NOT NULL,
   board_number    VARCHAR(25) NOT NULL,
@@ -39,28 +39,28 @@ CREATE TABLE persons (
 
 CREATE TABLE employees (
   id        SERIAL PRIMARY KEY,
-  person_id INT NOT NULL UNIQUE REFERENCES persons (id)
+  person_id INT NOT NULL UNIQUE REFERENCES persons (id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE flight_crews (
   id               SERIAL PRIMARY KEY,
-  pilot_id         INT NOT NULL REFERENCES employees (id),
-  second_pilot_id  INT REFERENCES employees (id),
-  chief_steward_id INT REFERENCES employees (id)
+  pilot_id         INT NOT NULL REFERENCES employees (id) ON UPDATE CASCADE,
+  second_pilot_id  INT REFERENCES employees (id) ON UPDATE CASCADE,
+  chief_steward_id INT REFERENCES employees (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE passengers (
   id        SERIAL PRIMARY KEY,
-  person_id INT         NOT NULL UNIQUE REFERENCES persons (id),
+  person_id INT         NOT NULL UNIQUE REFERENCES persons (id) ON UPDATE CASCADE ON DELETE RESTRICT,
   passport  VARCHAR(30) NOT NULL UNIQUE
 );
 
 CREATE TABLE flights (
   id                   SERIAL PRIMARY KEY,
-  plane_id             INT         NOT NULL REFERENCES planes (id),
-  flight_crew_id       INT         NOT NULL REFERENCES flight_crews (id),
-  departure_airport_id INT         NOT NULL REFERENCES airports (id),
-  arrival_airport_id   INT         NOT NULL REFERENCES airports (id),
+  plane_id             INT         NOT NULL REFERENCES planes (id) ON UPDATE CASCADE,
+  flight_crew_id       INT         NOT NULL REFERENCES flight_crews (id) ON UPDATE CASCADE,
+  departure_airport_id INT         NOT NULL REFERENCES airports (id) ON UPDATE CASCADE,
+  arrival_airport_id   INT         NOT NULL REFERENCES airports (id) ON UPDATE CASCADE,
   departure_time       TIMESTAMPTZ NOT NULL, -- TIMESTAMPTZ == TIMESTAMP WITH TIME ZONE
   arrival_time         TIMESTAMPTZ NOT NULL, -- '2004-10-19 10:23:54+00' - дата + время по UTC +00 часов
 
@@ -70,8 +70,8 @@ CREATE TABLE flights (
 
 CREATE TABLE flight_passengers (
   id           SERIAL PRIMARY KEY,
-  passenger_id INT NOT NULL REFERENCES passengers (id),
-  flight_id    INT NOT NULL REFERENCES flights (id),
+  passenger_id INT NOT NULL REFERENCES passengers (id) ON UPDATE CASCADE,
+  flight_id    INT NOT NULL REFERENCES flights (id) ON UPDATE CASCADE,
 
   UNIQUE (passenger_id, flight_id)
 );
