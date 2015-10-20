@@ -22,9 +22,8 @@ CREATE TABLE planes (
   manufacturer_id INT     NOT NULL REFERENCES plane_manufacturers (id) ON UPDATE CASCADE,
   model           VARCHAR NOT NULL,
   seat_count      INT     NOT NULL,
-  board_number    VARCHAR NOT NULL,
+  board_number    VARCHAR NOT NULL UNIQUE,
 
-  UNIQUE (board_number),
   CHECK (seat_count > 0)
 );
 
@@ -34,7 +33,8 @@ CREATE TABLE persons (
   surname  VARCHAR DEFAULT '',
   birthday DATE, -- '1999-01-08' - 8 января
 
-  CHECK (birthday >= '1900-01-01')
+  CHECK (birthday >= '1900-01-01'),
+  CHECK (birthday <= current_date)
 );
 
 CREATE TABLE employees (
