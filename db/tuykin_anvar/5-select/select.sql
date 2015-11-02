@@ -35,3 +35,13 @@ FROM groups g LEFT JOIN students s ON g.id = s.group_id
 GROUP BY g.id
 HAVING COUNT(s.id) >= 2
 ORDER BY students_count DESC
+
+/** 6 **/
+/**
+Q1. Чем плох данный запрос? И в каких случаях?
+**/
+SELECT g.name, count(s.id) students_count, string_agg(concat(s.surname, ' ', s.name), ', ')
+FROM groups g INNER JOIN students s ON g.id = s.group_id
+WHERE date_part('year', age(birthday)) BETWEEN 18 AND 26 AND s.gender = 'м'
+GROUP BY g.id
+ORDER BY students_count DESC;
