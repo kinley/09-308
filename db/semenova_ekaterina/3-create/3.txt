@@ -1,0 +1,60 @@
+CREATE TABLE passenger
+(
+  idpass serial primary key,
+  surname character(15) NOT NULL,
+  name_ character(15) NOT NULL,
+  middle_name character(15) NOT NULL,
+  passport character(11),
+  birthday date,
+  phone_num CHAR(11) NOT NULL, 
+  check (birthday < CURRENT_DATE),
+  CHECK (phone_num like '7%')
+)
+
+CREATE TABLE station
+(
+  idstation serial primary key,
+  namestation character(20) not null unique,
+  region character(20) NOT NULL
+)
+
+CREATE TABLE train
+(
+  idtrain serial primary key,
+  numtrain int NOT NULL,
+  numcars integer NOT NULL,
+  typetrain character(12) NOT NULL,
+  raillink int not null,
+  foreign key (raillink) references rail_links(idraillink) on update cascade on delete set null,
+  check (((numtrain < 998) and (typetrain = 'Пассажирский'))or((numtrain between 6001 and 7498) and (typetrain = 'Пригородный')))
+  //до 998 - пассажирские, 6001-7498 - пригородные поезда
+)
+
+CREATE TABLE ticket
+(
+  idticket serial NOT NULL,
+  idpass serial NOT NULL ,
+  idtrain serial NOT NULL,
+  numcar integer NOT NULL,
+  numseat integer NOT NULL,
+  iddispatch serial NOT NULL,
+  idarrival serial NOT NULL,
+  dispatch date NOT NULL,
+  arrival date NOT NULL,
+  CONSTRAINT ticket_pkey PRIMARY KEY (idticket),
+  CONSTRAINT ticket_idarrival_fkey FOREIGN KEY (idarrival)
+      REFERENCES station (idstation) MATCH SIMPLE
+      ON UPDATE cascade ON DELETE NO ACTION,
+  CONSTRAINT ticket_iddispatch_fkey FOREIGN KEY (iddispatch)
+      REFERENCES station (idstation) MATCH SIMPLE
+      ON UPDATE cascade ON DELETE NO ACTION,
+  check (iddispatch <> idarrival),
+  );
+
+CREATE TABLE rail_links
+(
+  idraillink serial primary key,
+  nameraillink char(20) unique,
+  iddispatch serial NOT NULL,
+  idarrival serial NOT NULL
+)

@@ -1,0 +1,5 @@
+CREATE TRIGGER plus_seat
+  AFTER INSERT
+  ON ticket
+  FOR EACH ROW
+  EXECUTE PROCEDURE plus_numseat();

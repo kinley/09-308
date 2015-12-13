@@ -1,0 +1,13 @@
+¬ывести станции, в которые будут прибывать поезда с сент€бр€ по декабрь 2015 года.
+
+select ALL(s.namestation) from station s
+join ticket t on s.idstation = t.idarrival
+where t.arrival between '01/09/2015' and '31/12/2015'
+
+¬ывести железнодорожные сообщени€, по которым проход€т поезда через  азань-ѕасс в сент€бре 2015 года.
+
+select ALL(r.nameraillink) from rail_links r
+join train t on r.idraillink = t.raillink
+join ticket ti on t.idtrain = ti.idtrain
+where (ti.arrival between '01/09/2015' and '30/09/2015')and((r.iddispatch = 1) or (r.idarrival = 1))
+

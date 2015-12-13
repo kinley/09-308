@@ -1,0 +1,13 @@
+Отображает ФИО владельцев первых трех билетов
+create view pass_ticket
+as
+select p.surname, p.name_, p.middle_name from passenger p
+join ticket t on t.idpass = p.idpass
+where t.idticket < 4
+
+Отображает пасспортные данные пассажиров, которые ездили на поезде с номером 9 в марте 2015 года 
+create view passport_pass
+as
+select p.passport from passenger p
+join ticket t on t.idpass = p.idpass
+where (t.arrival between '01/03/2015' and '31/03/2015') and (t.arrival between '01/03/2015' and '31/03/2015') and (t.idtrain = 9)

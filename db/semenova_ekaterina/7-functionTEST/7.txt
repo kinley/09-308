@@ -1,0 +1,11 @@
+create function count_of_sept_tickets() returns trigger as'
+begin select count(t.dispatch) from ticket t 
+where t.dispatch between 01/09/2015 and 30/09/2015;
+end;'
+LANGUAGE plpgsql;
+
+create function delete_date_dispatch() returns trigger as'
+begin delete from ticket t 
+where t.dispatch < 01/08/2015;
+end;'
+LANGUAGE plpgsql;
