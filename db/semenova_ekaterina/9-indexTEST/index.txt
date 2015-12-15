@@ -1,0 +1,15 @@
+CREATE INDEX pass
+  ON ticket
+  USING btree
+  (idpass);
+
+
+CREATE INDEX route
+  ON ticket
+  USING btree
+  (idroute);
+
+CREATE INDEX stations
+  ON ticket
+  USING btree
+  (iddispatch, idarrival);

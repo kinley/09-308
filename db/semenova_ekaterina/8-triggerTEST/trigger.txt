@@ -1,0 +1,2 @@
+create trigger new_ins before insert on train
+for EACH row EXECUTE procedure error();
