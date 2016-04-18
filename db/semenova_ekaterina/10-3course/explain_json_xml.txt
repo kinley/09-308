@@ -1,0 +1,74 @@
+﻿EXPLAIN ANALYZE
+explain analyze select p.surname, p.phone_num from passenger p
+ join ticket t on t.idpass=p.idpass
+ join train tr on tr.idtrain=t.idtrain
+ join station s on ((s.idstation=t.idarrival)or(t.iddispatch=s.idstation))
+ where tr.typetrain = 'Пассажирский' and s.idstation between 15 and 20;
+
+"Nested Loop  (cost=24.74..54.69 rows=1 width=112) (actual time=35.027..35.044 rows=1 loops=1)"
+"  ->  Nested Loop  (cost=24.59..54.47 rows=1 width=4) (actual time=23.608..23.621 rows=1 loops=1)"
+"        Join Filter: ((s.idstation = t.idarrival) OR (t.iddispatch = s.idstation))"
+"        Rows Removed by Join Filter: 23"
+"        ->  Hash Join  (cost=20.43..44.78 rows=5 width=12) (actual time=0.505..0.520 rows=4 loops=1)"
+"              Hash Cond: (t.idtrain = tr.idtrain)"
+"              ->  Seq Scan on ticket t  (cost=0.00..20.40 rows=1040 width=16) (actual time=0.005..0.011 rows=7 loops=1)"
+"              ->  Hash  (cost=20.38..20.38 rows=4 width=4) (actual time=0.452..0.452 rows=2 loops=1)"
+"                    Buckets: 1024  Batches: 1  Memory Usage: 1kB"
+"                    ->  Seq Scan on train tr  (cost=0.00..20.38 rows=4 width=4) (actual time=0.448..0.449 rows=2 loops=1)"
+"                          Filter: (typetrain = 'Пассажирский'::bpchar)"
+"                          Rows Removed by Filter: 1"
+"        ->  Materialize  (cost=4.17..9.52 rows=2 width=4) (actual time=5.747..5.754 rows=6 loops=4)"
+"              ->  Bitmap Heap Scan on station s  (cost=4.17..9.51 rows=2 width=4) (actual time=22.978..22.979 rows=6 loops=1)"
+"                    Recheck Cond: ((idstation >= 15) AND (idstation <= 20))"
+"                    Heap Blocks: exact=1"
+"                    ->  Bitmap Index Scan on station_pkey  (cost=0.00..4.17 rows=2 width=0) (actual time=22.922..22.922 rows=7 loops=1)"
+"                          Index Cond: ((idstation >= 15) AND (idstation <= 20))"
+"  ->  Index Scan using passenger_pkey on passenger p  (cost=0.15..0.21 rows=1 width=116) (actual time=11.381..11.384 rows=1 loops=1)"
+"        Index Cond: (idpass = t.idpass)"
+"Planning time: 180.908 ms"
+"Execution time: 35.218 ms"
+––––––––––––––––––––––––––––––––––
+explain analyze select t.idticket from ticket t
+join passenger p on p.idpass=t.idpass
+where p.middle_name like 'М%' and t.idroute = 3;
+
+"Nested Loop  (cost=0.00..36.69 rows=1 width=4) (actual time=0.050..0.050 rows=0 loops=1)"
+"  Join Filter: (t.idpass = p.idpass)"
+"  Rows Removed by Join Filter: 2"
+"  ->  Seq Scan on passenger p  (cost=0.00..13.63 rows=1 width=4) (actual time=0.023..0.027 rows=1 loops=1)"
+"        Filter: (middle_name ~~ 'М%'::text)"
+"        Rows Removed by Filter: 12"
+"  ->  Seq Scan on ticket t  (cost=0.00..23.00 rows=5 width=8) (actual time=0.005..0.008 rows=2 loops=1)"
+"        Filter: (idroute = 3)"
+"        Rows Removed by Filter: 5"
+"Planning time: 0.381 ms"
+"Execution time: 0.140 ms"
+––––––––––––––––––––––––––––––––––––––––––
+explain analyze select p.surname from passenger p
+join ticket t on p.idpass=t.idpass
+where (extract(month from p.birthday) between 09 and 11) and (t.idroute = 2);
+
+"Nested Loop  (cost=0.00..40.31 rows=1 width=64) (actual time=0.081..0.113 rows=1 loops=1)"
+"  Join Filter: (p.idpass = t.idpass)"
+"  Rows Removed by Join Filter: 11"
+"  ->  Seq Scan on passenger p  (cost=0.00..17.25 rows=1 width=68) (actual time=0.039..0.052 rows=6 loops=1)"
+"        Filter: ((date_part('month'::text, (birthday)::timestamp without time zone) >= 9::double precision) AND (date_part('month'::text, (birthday)::timestamp without time zone) <= 11::double precision))"
+"        Rows Removed by Filter: 7"
+"  ->  Seq Scan on ticket t  (cost=0.00..23.00 rows=5 width=4) (actual time=0.002..0.003 rows=2 loops=6)"
+"        Filter: (idroute = 2)"
+"        Rows Removed by Filter: 5"
+"Planning time: 0.344 ms"
+"Execution time: 0.180 ms"
+JSON
+Добавление поля: alter table passenger add info json;
+Добавление записи: 
+insert into passenger
+values
+(14, 'Ivanov','Ivan','Ivanovich', '1968-10-10',79603017356,'{"Фамилия": "Иванов","Имя":"Иван", "Отчество":"Иванович"}');
+						XML
+copy (SELECT query_to_xml('SELECT * 
+FROM 
+passenger,routes,station,ticket,train',true,false,'')) TO 'c:\\6sem\text.xml';
+
+
+

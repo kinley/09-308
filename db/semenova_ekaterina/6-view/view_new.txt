@@ -1,0 +1,8 @@
+Вывод билета: ФИО пассажира, маршрут,номер поезда, время отправления, станция прибытия, время прибытия
+create view ticket_info as
+select p.surname, p.name_, p.middle_name, tr.numtrain, r.nameroute, t.dispatch, s.namestation, t.arrival
+from passenger p
+join ticket t on t.idpass = p.idpass
+join train tr on t.idtrain=tr.idtrain
+join routes r on t.idroute=r.idroute
+join station s on t.iddispatch=s.idstation 

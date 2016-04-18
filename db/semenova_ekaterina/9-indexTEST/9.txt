@@ -1,0 +1,24 @@
+CREATE UNIQUE INDEX id
+  ON passenger
+  USING btree
+  (idpass);
+ALTER TABLE passenger CLUSTER ON id;
+
+CREATE INDEX idrail
+  ON rail_links
+  USING btree
+  (idraillink);
+
+
+
+CREATE INDEX idpass
+  ON ticket
+  USING btree
+  (idpass);
+
+
+CREATE INDEX idtrain
+  ON ticket
+  USING btree
+  (idtrain);
+ALTER TABLE ticket CLUSTER ON idtrain;

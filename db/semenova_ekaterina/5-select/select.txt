@@ -1,0 +1,17 @@
+Вывести фамилии всех пассажиров, родившихся осенью, которые приобретали билеты на поезда маршрута "Казань-Шумерля"
+select p.surname from passenger p
+join ticket t on p.idpass=t.idpass
+where (extract(month from p.birthday) between 09 and 11) and (t.idroute = 2);
+
+Вывести фамилии и номера телефонов пассажиров, которые приобретали билеты на пригородные поезда, проезжающие через станции с номерами от 15 до 20.
+select p.surname, p.phone_num from passenger p
+join ticket t on t.idpass=p.idpass
+join train tr on tr.idtrain=t.idtrain
+join station s on ((s.idstation=t.idarrival)or(t.iddispatch=s.idstation))
+where tr.typetrain = 'Пригородный' and s.idstation between 15 and 20;
+
+Вывести номера билетов, которые принадлежат пассажирам с отчеством, начинающимся на букву "А", билеты приобретены на маршрут Уфа - Санкт-Петербург Гл.
+select t.idticket from ticket t
+join passenger p on p.idpass=t.idpass
+where p.middle_name like 'А%' and t.idroute = 3;
+

@@ -1,0 +1,66 @@
+//Данные пассажиров
+CREATE TABLE passenger
+(
+  idpass serial primary key,
+  surname character(15) NOT NULL,
+  name_ character(15) NOT NULL,
+  middle_name character(15) NOT NULL,
+  birthday date,
+  phone_num CHAR(11), 
+  check (birthday < CURRENT_DATE),
+  CHECK (phone_num like '7%')
+)
+
+//Ж/Д станции
+CREATE TABLE station
+(
+  idstation serial primary key,
+  namestation character(20) not null unique,
+  region character(20) NOT NULL
+)
+
+//Маршруты(железнодорожные сообщения)
+CREATE TABLE routes
+(
+  idroute serial primary key, //индекс
+  nameroute char(20) unique, //наименование маршрута
+  iddispatch serial NOT NULL, //начальная станция
+  idarrival serial NOT NULL //конечная станция
+) 
+
+//Поезда
+CREATE TABLE train
+(
+  idtrain serial primary key, //индекс поезда
+  numtrain int NOT NULL, //номер поезда
+  numcars integer NOT NULL, //количество вагонов
+  typetrain character(12) NOT NULL, //тип поезда(Пассажирский или Пригородный, т.к. БД ориентирована на пассажирские перевозки)
+  raillink int not null, //железнодорожное сообщение
+  foreign key (route) references routes(idroute) on update cascade on delete set null, 
+  check (((numtrain < 998) and (typetrain = 'Пассажирский'))or((numtrain between 6001 and 7498) and (typetrain = 'Пригородный')))
+  //до 998 - пассажирские, 6001-7498 - пригородные поезда
+)
+
+//Пассажирский билет
+CREATE TABLE ticket
+(
+  idticket serial NOT NULL, //индекс билета, первичный ключ(остальные индексы - вторичные ключи)
+  idpass serial NOT NULL , //индекс пассажира
+  idroute serial NOT NULL, //индекс маршрута
+  idtrain serial NOT NULL, //индекс поезда
+  numcar integer NOT NULL, //номер вагона
+  numseat integer NOT NULL, //номер места
+  iddispatch serial NOT NULL, //индекс станции отправления
+  idarrival serial NOT NULL, //индекс станции прибытия
+  dispatch date NOT NULL, //дата и время отправления
+  arrival date NOT NULL, //дата и время прибытия
+  foreign key (idroute) references routes(idroute) on update cascade,
+  CONSTRAINT ticket_pkey PRIMARY KEY (idticket),
+  CONSTRAINT ticket_idarrival_fkey FOREIGN KEY (idarrival)
+      REFERENCES station (idstation) MATCH SIMPLE
+      ON UPDATE cascade ON DELETE NO ACTION,
+  CONSTRAINT ticket_iddispatch_fkey FOREIGN KEY (iddispatch)
+      REFERENCES station (idstation) MATCH SIMPLE
+      ON UPDATE cascade ON DELETE NO ACTION,
+  check (iddispatch <> idarrival) //станции прибытия и отправления не должны совпадать
+  );

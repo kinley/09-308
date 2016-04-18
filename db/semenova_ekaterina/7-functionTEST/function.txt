@@ -1,0 +1,23 @@
+create function num_sept_tickets(num integer) returns integer as'
+begin
+select count(t.dispatch) from ticket t into num where (extract(month from t.dispatch)=09);
+return num;
+end;'
+language plpgsql;
+
+create function error() returns trigger as'
+begin
+insert into routes
+(
+  idroute,
+  nameroute,
+  iddispatch,
+  idarrival)
+
+  values
+  (4, ''“верь-”фа'', 4, 2);
+return null;
+end;
+  
+'
+language plpgsql;
