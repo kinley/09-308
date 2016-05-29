@@ -1,0 +1,11 @@
+﻿
+JSON
+Добавление поля: alter table cinemas add info json;
+Добавление записи: insert into cinemas
+values
+(11, 'Гранд синема',35,'Артур Гир','1968-10-10',6,,30,'{"Название": "Гранд Синема","Режиссер":"Артур Гир"}');
+
+XML
+copy (SELECT query_to_xml('SELECT * 
+FROM 
+cinemas,films,disrtibutions,type',local,original,'')) TO 'e:\Gus';
