@@ -1,0 +1,2774 @@
+{
+  "name": "JHop",
+  "id": "JHope",
+  "description": "Imported database from sql server 'analytics-db-server.database.windows.net' and database 'analytics_db'",
+  "compatibilityLevel": 1000000,
+  "model": {
+    "name": "JHope",
+    "description": "A Tabular data model at the 1400 compatibility level.",
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer analytics-db-server.database.windows.net analytics_db",
+        "description": "A data source definition that uses explicit sql server credentials from connection string",
+        "connectionString": "Provider=SQLNCLI11;Server=tcp:analytics-db-server.database.windows.net;Initial Catalog=analytics_db;Persist Security Info=False;User ID=analytics_admin;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30",
+        "impersonationMode": "impersonateServiceAccount"
+      }
+    ],
+    "tables": [
+      {
+        "name": "SalesLT.Address",
+        "description": "All data from SalesLT.Address",
+        "columns": [
+          {
+            "name": "AddressID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "AddressID"
+          },
+          {
+            "name": "AddressLine1",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "AddressLine1",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "AddressLine2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "City",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "StateProvince",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "StateProvince",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "CountryRegion",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "CountryRegion",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "PostalCode",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PostalCode",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 8
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.Address",
+            "source": {
+              "query": "SELECT [AddressID],[AddressLine1],[AddressLine2],[City],[StateProvince],[CountryRegion],[PostalCode],[rowguid],[ModifiedDate] FROM Address",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "BuildVersion",
+        "description": "All data from BuildVersion",
+        "columns": [
+          {
+            "name": "SystemInformationID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "SystemInformationID"
+          },
+          {
+            "name": "Database Version",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Database Version",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "VersionDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "VersionDate",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "BuildVersion",
+            "source": {
+              "query": "SELECT [SystemInformationID],[Database Version],[VersionDate],[ModifiedDate] FROM BuildVersion",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.Customer",
+        "description": "All data from SalesLT.Customer",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "NameStyle",
+            "dataType": "boolean",
+            "isNullable": false,
+            "sourceColumn": "NameStyle",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "FirstName",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "MiddleName",
+            "dataType": "string",
+            "sourceColumn": "MiddleName",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "LastName",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Suffix",
+            "dataType": "string",
+            "sourceColumn": "Suffix",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "CompanyName",
+            "dataType": "string",
+            "sourceColumn": "CompanyName",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "SalesPerson",
+            "dataType": "string",
+            "sourceColumn": "SalesPerson",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "PasswordHash",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PasswordHash",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "PasswordSalt",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "PasswordSalt",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 14
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.Customer",
+            "source": {
+              "query": "SELECT [CustomerID],[NameStyle],[Title],[FirstName],[MiddleName],[LastName],[Suffix],[CompanyName],[SalesPerson],[EmailAddress],[Phone],[PasswordHash],[PasswordSalt],[rowguid],[ModifiedDate] FROM Customer",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "SUM",
+            "expression": "SUM('SalesLT.Customer'[Phone])"
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.CustomerAddress",
+        "description": "All data from SalesLT.CustomerAddress",
+        "columns": [
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID"
+          },
+          {
+            "name": "AddressID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "AddressID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "AddressType",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "AddressType",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.CustomerAddress",
+            "source": {
+              "query": "SELECT [CustomerID],[AddressID],[AddressType],[rowguid],[ModifiedDate] FROM CustomerAddress",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "   ",
+        "description": "All data from ErrorLog",
+        "columns": [
+          {
+            "name": "ErrorLogID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ErrorLogID"
+          },
+          {
+            "name": "ErrorTime",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ErrorTime",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "UserName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "UserName",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ErrorNumber",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ErrorNumber",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ErrorSeverity",
+            "dataType": "int64",
+            "sourceColumn": "ErrorSeverity",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "ErrorState",
+            "dataType": "int64",
+            "sourceColumn": "ErrorState",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "ErrorProcedure",
+            "dataType": "string",
+            "sourceColumn": "ErrorProcedure",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "ErrorLine",
+            "dataType": "int64",
+            "sourceColumn": "ErrorLine",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ErrorMessage",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ErrorMessage",
+            "displayOrdinal": 8
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ErrorLog",
+            "source": {
+              "query": "SELECT [ErrorLogID],[ErrorTime],[UserName],[ErrorNumber],[ErrorSeverity],[ErrorState],[ErrorProcedure],[ErrorLine],[ErrorMessage] FROM ErrorLog",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.Product",
+        "description": "All data from SalesLT.Product",
+        "columns": [
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "ProductNumber",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ProductNumber",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "StandardCost",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "StandardCost",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "ListPrice",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "ListPrice",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Size",
+            "dataType": "string",
+            "sourceColumn": "Size",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "Weight",
+            "dataType": "decimal",
+            "sourceColumn": "Weight",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ProductCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryID",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "sourceColumn": "ProductModelID",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "SellStartDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "SellStartDate",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "SellEndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "SellEndDate",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "DiscontinuedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DiscontinuedDate",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "ThumbNailPhoto",
+            "dataType": "binary",
+            "sourceColumn": "ThumbNailPhoto",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "ThumbnailPhotoFileName",
+            "dataType": "string",
+            "sourceColumn": "ThumbnailPhotoFileName",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 16
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.Product",
+            "source": {
+              "query": "SELECT [ProductID],[Name],[ProductNumber],[Color],[StandardCost],[ListPrice],[Size],[Weight],[ProductCategoryID],[ProductModelID],[SellStartDate],[SellEndDate],[DiscontinuedDate],[ThumbNailPhoto],[ThumbnailPhotoFileName],[rowguid],[ModifiedDate] FROM Product",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.ProductCategory",
+        "description": "All data from SalesLT.ProductCategory",
+        "columns": [
+          {
+            "name": "ProductCategoryID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductCategoryID"
+          },
+          {
+            "name": "ParentProductCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "ParentProductCategoryID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.ProductCategory",
+            "source": {
+              "query": "SELECT [ProductCategoryID],[ParentProductCategoryID],[Name],[rowguid],[ModifiedDate] FROM ProductCategory",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.ProductDescription",
+        "description": "All data from SalesLT.ProductDescription",
+        "columns": [
+          {
+            "name": "ProductDescriptionID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductDescriptionID"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Description",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.ProductDescription",
+            "source": {
+              "query": "SELECT [ProductDescriptionID],[Description],[rowguid],[ModifiedDate] FROM ProductDescription",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.ProductModel",
+        "description": "All data from SalesLT.ProductModel",
+        "columns": [
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductModelID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "CatalogDescription",
+            "dataType": "string",
+            "sourceColumn": "CatalogDescription",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.ProductModel",
+            "source": {
+              "query": "SELECT [ProductModelID],[Name],[CatalogDescription],[rowguid],[ModifiedDate] FROM ProductModel",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.ProductModelProductDescription",
+        "description": "All data from SalesLT.ProductModelProductDescription",
+        "columns": [
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductModelID"
+          },
+          {
+            "name": "ProductDescriptionID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductDescriptionID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Culture",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Culture",
+            "displayOrdinal": 2,
+            "alternateOf": {
+              "baseColumn": {
+                "table": "TestAlternateOf",
+                "column": "NameCount"
+              },
+              "summarization": "sum"
+            }
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.ProductModelProductDescription",
+            "source": {
+              "query": "SELECT [ProductModelID],[ProductDescriptionID],[Culture],[rowguid],[ModifiedDate] FROM ProductModelProductDescription",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.SalesOrderDetail",
+        "description": "All data from SalesLT.SalesOrderDetail",
+        "columns": [
+          {
+            "name": "SalesOrderID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "SalesOrderID"
+          },
+          {
+            "name": "SalesOrderDetailID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "SalesOrderDetailID",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "OrderQty",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "OrderQty",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductID",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "UnitPrice",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "UnitPriceDiscount",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "UnitPriceDiscount",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "LineTotal",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "LineTotal",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 8
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.SalesOrderDetail",
+            "source": {
+              "query": "SELECT [SalesOrderID],[SalesOrderDetailID],[OrderQty],[ProductID],[UnitPrice],[UnitPriceDiscount],[LineTotal],[rowguid],[ModifiedDate] FROM SalesOrderDetail",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.SalesOrderHeader",
+        "description": "All data from SalesLT.SalesOrderHeader",
+        "columns": [
+          {
+            "name": "SalesOrderID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "SalesOrderID"
+          },
+          {
+            "name": "RevisionNumber",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "RevisionNumber",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "OrderDate",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "DueDate",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "ShipDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShipDate",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "Status",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "Status",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "OnlineOrderFlag",
+            "dataType": "boolean",
+            "isNullable": false,
+            "sourceColumn": "OnlineOrderFlag",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "SalesOrderNumber",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "SalesOrderNumber",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "PurchaseOrderNumber",
+            "dataType": "string",
+            "sourceColumn": "PurchaseOrderNumber",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "AccountNumber",
+            "dataType": "string",
+            "sourceColumn": "AccountNumber",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "CustomerID",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "ShipToAddressID",
+            "dataType": "int64",
+            "sourceColumn": "ShipToAddressID",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "BillToAddressID",
+            "dataType": "int64",
+            "sourceColumn": "BillToAddressID",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "ShipMethod",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ShipMethod",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "CreditCardApprovalCode",
+            "dataType": "string",
+            "sourceColumn": "CreditCardApprovalCode",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "SubTotal",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "SubTotal",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "TaxAmt",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "TaxAmt",
+            "displayOrdinal": 16
+          },
+          {
+            "name": "Freight",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "Freight",
+            "displayOrdinal": 17
+          },
+          {
+            "name": "TotalDue",
+            "dataType": "decimal",
+            "isNullable": false,
+            "sourceColumn": "TotalDue",
+            "displayOrdinal": 18
+          },
+          {
+            "name": "Comment",
+            "dataType": "string",
+            "sourceColumn": "Comment",
+            "displayOrdinal": 19
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 20
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 21
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.SalesOrderHeader",
+            "source": {
+              "query": "SELECT [SalesOrderID],[RevisionNumber],[OrderDate],[DueDate],[ShipDate],[Status],[OnlineOrderFlag],[SalesOrderNumber],[PurchaseOrderNumber],[AccountNumber],[CustomerID],[ShipToAddressID],[BillToAddressID],[ShipMethod],[CreditCardApprovalCode],[SubTotal],[TaxAmt],[Freight],[TotalDue],[Comment],[rowguid],[ModifiedDate] FROM SalesOrderHeader",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.authorhashtag_graph",
+        "description": "All data from pbist_twitter.authorhashtag_graph",
+        "columns": [
+          {
+            "name": "tweetid",
+            "dataType": "string",
+            "sourceColumn": "tweetid"
+          },
+          {
+            "name": "author",
+            "dataType": "string",
+            "sourceColumn": "author",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "authorcolor",
+            "dataType": "string",
+            "sourceColumn": "authorcolor",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "hashtag",
+            "dataType": "string",
+            "sourceColumn": "hashtag",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "hashtagcolor",
+            "dataType": "string",
+            "sourceColumn": "hashtagcolor",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.authorhashtag_graph",
+            "source": {
+              "query": "SELECT [tweetid],[author],[authorcolor],[hashtag],[hashtagcolor] FROM authorhashtag_graph",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "41978(1)",
+            "expression": "CONTAINS('ErrorLog'[ErrorTime])"
+          },
+          {
+            "name": "41978(2)",
+            "expression": "SUM('   '[ErrorNumber])"
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.authormention_graph",
+        "description": "All data from pbist_twitter.authormention_graph",
+        "columns": [
+          {
+            "name": "tweetid",
+            "dataType": "string",
+            "sourceColumn": "tweetid"
+          },
+          {
+            "name": "author",
+            "dataType": "string",
+            "sourceColumn": "author",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "authorcolor",
+            "dataType": "string",
+            "sourceColumn": "authorcolor",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "mention",
+            "dataType": "string",
+            "sourceColumn": "mention",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "mentioncolor",
+            "dataType": "string",
+            "sourceColumn": "mentioncolor",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.authormention_graph",
+            "source": {
+              "query": "SELECT [tweetid],[author],[authorcolor],[mention],[mentioncolor] FROM authormention_graph",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.configuration",
+        "description": "All data from pbist_twitter.configuration",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "id"
+          },
+          {
+            "name": "configuration_group",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "configuration_group",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "configuration_subgroup",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "configuration_subgroup",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "name",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "value",
+            "dataType": "string",
+            "sourceColumn": "value",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "visible",
+            "dataType": "boolean",
+            "isNullable": false,
+            "sourceColumn": "visible",
+            "displayOrdinal": 5
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.configuration",
+            "source": {
+              "query": "SELECT [id],[configuration_group],[configuration_subgroup],[name],[value],[visible] FROM configuration",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.entityinitialcount",
+        "description": "All data from pbist_twitter.entityinitialcount",
+        "columns": [
+          {
+            "name": "entityname",
+            "dataType": "string",
+            "sourceColumn": "entityname"
+          },
+          {
+            "name": "initialcount",
+            "dataType": "int64",
+            "sourceColumn": "initialcount",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "lastcount",
+            "dataType": "int64",
+            "sourceColumn": "lastcount",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "lasttimestamp",
+            "dataType": "dateTime",
+            "sourceColumn": "lasttimestamp",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.entityinitialcount",
+            "source": {
+              "query": "SELECT [entityname],[initialcount],[lastcount],[lasttimestamp] FROM entityinitialcount",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.hashtag_slicer",
+        "description": "All data from pbist_twitter.hashtag_slicer",
+        "columns": [
+          {
+            "name": "tweetid",
+            "dataType": "string",
+            "sourceColumn": "tweetid"
+          },
+          {
+            "name": "facet",
+            "dataType": "string",
+            "sourceColumn": "facet",
+            "displayOrdinal": 1
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.hashtag_slicer",
+            "source": {
+              "query": "SELECT [tweetid],[facet] FROM hashtag_slicer",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.mention_slicer",
+        "description": "All data from pbist_twitter.mention_slicer",
+        "columns": [
+          {
+            "name": "tweetid",
+            "dataType": "string",
+            "sourceColumn": "tweetid"
+          },
+          {
+            "name": "facet",
+            "dataType": "string",
+            "sourceColumn": "facet",
+            "displayOrdinal": 1
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.mention_slicer",
+            "source": {
+              "query": "SELECT [tweetid],[facet] FROM mention_slicer",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.minimum_tweets",
+        "description": "All data from pbist_twitter.minimum_tweets",
+        "columns": [
+          {
+            "name": "MinimumTweets",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "MinimumTweets"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.minimum_tweets",
+            "source": {
+              "query": "SELECT [MinimumTweets] FROM minimum_tweets",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.ssas_jobs",
+        "description": "All data from pbist_twitter.ssas_jobs",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "id"
+          },
+          {
+            "name": "startTime",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "startTime",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "endTime",
+            "dataType": "dateTime",
+            "sourceColumn": "endTime",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "statusMessage",
+            "dataType": "string",
+            "sourceColumn": "statusMessage",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "lastCount",
+            "dataType": "int64",
+            "sourceColumn": "lastCount",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.ssas_jobs",
+            "source": {
+              "query": "SELECT [id],[startTime],[endTime],[statusMessage],[lastCount] FROM ssas_jobs",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "sysdiagrams",
+        "description": "All data from sysdiagrams",
+        "columns": [
+          {
+            "name": "name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "name",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.Customer",
+                "column": "FirstName"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "principal_id",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "principal_id",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "diagram_id",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "diagram_id",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "version",
+            "dataType": "int64",
+            "sourceColumn": "version",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "definition",
+            "dataType": "binary",
+            "sourceColumn": "definition",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "sysdiagrams",
+            "source": {
+              "query": "SELECT [name],[principal_id],[diagram_id],[version],[definition] FROM sysdiagrams",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.tweets_normalized",
+        "description": "All data from pbist_twitter.tweets_normalized",
+        "columns": [
+          {
+            "name": "masterid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "masterid"
+          },
+          {
+            "name": "mentions",
+            "dataType": "int64",
+            "sourceColumn": "mentions",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "hashtags",
+            "dataType": "int64",
+            "sourceColumn": "hashtags",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "tweet",
+            "dataType": "string",
+            "sourceColumn": "tweet",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "twitterhandle",
+            "dataType": "string",
+            "sourceColumn": "twitterhandle",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "usernumber",
+            "dataType": "string",
+            "sourceColumn": "usernumber",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "sentiment",
+            "dataType": "double",
+            "sourceColumn": "sentiment",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "sentimentbin",
+            "dataType": "double",
+            "sourceColumn": "sentimentbin",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "sentimentposneg",
+            "dataType": "string",
+            "sourceColumn": "sentimentposneg",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "lang",
+            "dataType": "string",
+            "sourceColumn": "lang",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "accounttag",
+            "dataType": "string",
+            "sourceColumn": "accounttag",
+            "displayOrdinal": 10
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.tweets_normalized",
+            "source": {
+              "query": "SELECT [masterid],[mentions],[hashtags],[tweet],[twitterhandle],[usernumber],[sentiment],[sentimentbin],[sentimentposneg],[lang],[accounttag] FROM tweets_normalized",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.tweets_processed",
+        "description": "All data from pbist_twitter.tweets_processed",
+        "columns": [
+          {
+            "name": "tweetid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "tweetid"
+          },
+          {
+            "name": "dateorig",
+            "dataType": "dateTime",
+            "sourceColumn": "dateorig",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "hourofdate",
+            "dataType": "dateTime",
+            "sourceColumn": "hourofdate",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "minuteofdate",
+            "dataType": "dateTime",
+            "sourceColumn": "minuteofdate",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "latitude",
+            "dataType": "double",
+            "sourceColumn": "latitude",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "longitude",
+            "dataType": "double",
+            "sourceColumn": "longitude",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "masterid",
+            "dataType": "string",
+            "sourceColumn": "masterid",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "retweet",
+            "dataType": "string",
+            "sourceColumn": "retweet",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "username",
+            "dataType": "string",
+            "sourceColumn": "username",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "usernumber",
+            "dataType": "string",
+            "sourceColumn": "usernumber",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "image_url",
+            "dataType": "string",
+            "sourceColumn": "image_url",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "authorimage_url",
+            "dataType": "string",
+            "sourceColumn": "authorimage_url",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "direction",
+            "dataType": "string",
+            "sourceColumn": "direction",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "favorited",
+            "dataType": "int64",
+            "sourceColumn": "favorited",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "user_followers",
+            "dataType": "int64",
+            "sourceColumn": "user_followers",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "user_friends",
+            "dataType": "int64",
+            "sourceColumn": "user_friends",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "user_favorites",
+            "dataType": "int64",
+            "sourceColumn": "user_favorites",
+            "displayOrdinal": 16
+          },
+          {
+            "name": "user_totaltweets",
+            "dataType": "int64",
+            "sourceColumn": "user_totaltweets",
+            "displayOrdinal": 17
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.tweets_processed",
+            "source": {
+              "query": "SELECT [tweetid],[dateorig],[hourofdate],[minuteofdate],[latitude],[longitude],[masterid],[retweet],[username],[usernumber],[image_url],[authorimage_url],[direction],[favorited],[user_followers],[user_friends],[user_favorites],[user_totaltweets] FROM tweets_processed",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.twitter_query",
+        "description": "All data from pbist_twitter.twitter_query",
+        "columns": [
+          {
+            "name": "Id",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "Id"
+          },
+          {
+            "name": "IsAdvanced",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "IsAdvanced",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "QueryString",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "QueryString",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "TweetId",
+            "dataType": "string",
+            "sourceColumn": "TweetId",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.twitter_query",
+            "source": {
+              "query": "SELECT [Id],[IsAdvanced],[QueryString],[TweetId] FROM twitter_query",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.twitter_query_details",
+        "description": "All data from pbist_twitter.twitter_query_details",
+        "columns": [
+          {
+            "name": "Id",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "Id"
+          },
+          {
+            "name": "ReadableId",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ReadableId",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Operator",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Operator",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Operand",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Operand",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.twitter_query_details",
+            "source": {
+              "query": "SELECT [Id],[ReadableId],[Operator],[Operand] FROM twitter_query_details",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.twitter_query_readable",
+        "description": "All data from pbist_twitter.twitter_query_readable",
+        "columns": [
+          {
+            "name": "Id",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "Id"
+          },
+          {
+            "name": "QueryId",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "QueryId",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "QueryReadable",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "QueryReadable",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Query",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Query",
+            "displayOrdinal": 3
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.twitter_query_readable",
+            "source": {
+              "query": "SELECT [Id],[QueryId],[QueryReadable],[Query] FROM twitter_query_readable",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.vGetAllCategories",
+        "description": "All data from SalesLT.vGetAllCategories",
+        "columns": [
+          {
+            "name": "ParentProductCategoryName",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ParentProductCategoryName"
+          },
+          {
+            "name": "ProductCategoryName",
+            "dataType": "string",
+            "sourceColumn": "ProductCategoryName",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "ProductCategoryID",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryID",
+            "displayOrdinal": 2
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.vGetAllCategories",
+            "source": {
+              "query": "SELECT [ParentProductCategoryName],[ProductCategoryName],[ProductCategoryID] FROM vGetAllCategories",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.vProductAndDescription",
+        "description": "All data from SalesLT.vProductAndDescription",
+        "columns": [
+          {
+            "name": "ProductID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "ProductModel",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "ProductModel",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Culture",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Culture",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Description",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.vProductAndDescription",
+            "source": {
+              "query": "SELECT [ProductID],[Name],[ProductModel],[Culture],[Description] FROM vProductAndDescription",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "SalesLT.vProductModelCatalogDescription",
+        "description": "All data from SalesLT.vProductModelCatalogDescription",
+        "columns": [
+          {
+            "name": "ProductModelID",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "ProductModelID"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Name",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Summary",
+            "dataType": "string",
+            "sourceColumn": "Summary",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Manufacturer",
+            "dataType": "string",
+            "sourceColumn": "Manufacturer",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "Copyright",
+            "dataType": "string",
+            "sourceColumn": "Copyright",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "ProductURL",
+            "dataType": "string",
+            "sourceColumn": "ProductURL",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "WarrantyPeriod",
+            "dataType": "string",
+            "sourceColumn": "WarrantyPeriod",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "WarrantyDescription",
+            "dataType": "string",
+            "sourceColumn": "WarrantyDescription",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "NoOfYears",
+            "dataType": "string",
+            "sourceColumn": "NoOfYears",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "MaintenanceDescription",
+            "dataType": "string",
+            "sourceColumn": "MaintenanceDescription",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "Wheel",
+            "dataType": "string",
+            "sourceColumn": "Wheel",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "Saddle",
+            "dataType": "string",
+            "sourceColumn": "Saddle",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "Pedal",
+            "dataType": "string",
+            "sourceColumn": "Pedal",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "BikeFrame",
+            "dataType": "string",
+            "sourceColumn": "BikeFrame",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "Crankset",
+            "dataType": "string",
+            "sourceColumn": "Crankset",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "PictureAngle",
+            "dataType": "string",
+            "sourceColumn": "PictureAngle",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "PictureSize",
+            "dataType": "string",
+            "sourceColumn": "PictureSize",
+            "displayOrdinal": 16
+          },
+          {
+            "name": "ProductPhotoID",
+            "dataType": "string",
+            "sourceColumn": "ProductPhotoID",
+            "displayOrdinal": 17
+          },
+          {
+            "name": "Material",
+            "dataType": "string",
+            "sourceColumn": "Material",
+            "displayOrdinal": 18
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color",
+            "displayOrdinal": 19
+          },
+          {
+            "name": "ProductLine",
+            "dataType": "string",
+            "sourceColumn": "ProductLine",
+            "displayOrdinal": 20
+          },
+          {
+            "name": "Style",
+            "dataType": "string",
+            "sourceColumn": "Style",
+            "displayOrdinal": 21
+          },
+          {
+            "name": "RiderExperience",
+            "dataType": "string",
+            "sourceColumn": "RiderExperience",
+            "displayOrdinal": 22
+          },
+          {
+            "name": "rowguid",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "rowguid",
+            "displayOrdinal": 23
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "isNullable": false,
+            "sourceColumn": "ModifiedDate",
+            "displayOrdinal": 24
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SalesLT.vProductModelCatalogDescription",
+            "source": {
+              "query": "SELECT [ProductModelID],[Name],[Summary],[Manufacturer],[Copyright],[ProductURL],[WarrantyPeriod],[WarrantyDescription],[NoOfYears],[MaintenanceDescription],[Wheel],[Saddle],[Pedal],[BikeFrame],[Crankset],[PictureAngle],[PictureSize],[ProductPhotoID],[Material],[Color],[ProductLine],[Style],[RiderExperience],[rowguid],[ModifiedDate] FROM vProductModelCatalogDescription",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.vw_authorhashtag_graph",
+        "description": "All data from pbist_twitter.vw_authorhashtag_graph",
+        "columns": [
+          {
+            "name": "Tweet Id",
+            "dataType": "string",
+            "sourceColumn": "Tweet Id"
+          },
+          {
+            "name": "Author",
+            "dataType": "string",
+            "sourceColumn": "Author",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Author Color",
+            "dataType": "string",
+            "sourceColumn": "Author Color",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Hashtag",
+            "dataType": "string",
+            "sourceColumn": "Hashtag",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "Hashtag Color",
+            "dataType": "string",
+            "sourceColumn": "Hashtag Color",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.vw_authorhashtag_graph",
+            "source": {
+              "query": "SELECT [Tweet Id],[Author],[Author Color],[Hashtag],[Hashtag Color] FROM vw_authorhashtag_graph",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.vw_authormention_graph",
+        "description": "All data from pbist_twitter.vw_authormention_graph",
+        "columns": [
+          {
+            "name": "Tweet Id",
+            "dataType": "string",
+            "sourceColumn": "Tweet Id"
+          },
+          {
+            "name": "Author",
+            "dataType": "string",
+            "sourceColumn": "Author",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Author Color",
+            "dataType": "string",
+            "sourceColumn": "Author Color",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Mention",
+            "dataType": "string",
+            "sourceColumn": "Mention",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "Mention Color",
+            "dataType": "string",
+            "sourceColumn": "Mention Color",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.vw_authormention_graph",
+            "source": {
+              "query": "SELECT [Tweet Id],[Author],[Author Color],[Mention],[Mention Color] FROM vw_authormention_graph",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.vw_configuration",
+        "description": "All data from pbist_twitter.vw_configuration",
+        "columns": [
+          {
+            "name": "id",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "id"
+          },
+          {
+            "name": "configuration group",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "configuration group",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "configuration subgroup",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "configuration subgroup",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "name",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "name",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "value",
+            "dataType": "string",
+            "sourceColumn": "value",
+            "displayOrdinal": 4
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.vw_configuration",
+            "source": {
+              "query": "SELECT [id],[configuration group],[configuration subgroup],[name],[value] FROM vw_configuration",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.vw_hashtag_slicer",
+        "description": "All data from pbist_twitter.vw_hashtag_slicer",
+        "columns": [
+          {
+            "name": "Tweet Id",
+            "dataType": "string",
+            "sourceColumn": "Tweet Id"
+          },
+          {
+            "name": "Facet",
+            "dataType": "string",
+            "sourceColumn": "Facet",
+            "displayOrdinal": 1
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.vw_hashtag_slicer",
+            "source": {
+              "query": "SELECT [Tweet Id],[Facet] FROM vw_hashtag_slicer",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.vw_mention_slicer",
+        "description": "All data from pbist_twitter.vw_mention_slicer",
+        "columns": [
+          {
+            "name": "Tweet Id",
+            "dataType": "string",
+            "sourceColumn": "Tweet Id"
+          },
+          {
+            "name": "Facet",
+            "dataType": "string",
+            "sourceColumn": "Facet",
+            "displayOrdinal": 1
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.vw_mention_slicer",
+            "source": {
+              "query": "SELECT [Tweet Id],[Facet] FROM vw_mention_slicer",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.vw_minimum_tweets",
+        "description": "All data from pbist_twitter.vw_minimum_tweets",
+        "columns": [
+          {
+            "name": "Minimum Tweets",
+            "dataType": "int64",
+            "isNullable": false,
+            "sourceColumn": "Minimum Tweets"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.vw_minimum_tweets",
+            "source": {
+              "query": "SELECT [Minimum Tweets] FROM vw_minimum_tweets",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.vw_tweets_normalized",
+        "description": "All data from pbist_twitter.vw_tweets_normalized",
+        "columns": [
+          {
+            "name": "Master Id",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Master Id"
+          },
+          {
+            "name": "Mentions",
+            "dataType": "int64",
+            "sourceColumn": "Mentions",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Hashtags",
+            "dataType": "int64",
+            "sourceColumn": "Hashtags",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Tweet",
+            "dataType": "string",
+            "sourceColumn": "Tweet",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "Twitter Handle",
+            "dataType": "string",
+            "sourceColumn": "Twitter Handle",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "User Number",
+            "dataType": "string",
+            "sourceColumn": "User Number",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Sentiment",
+            "dataType": "double",
+            "sourceColumn": "Sentiment",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "Sentiment Bin",
+            "dataType": "double",
+            "sourceColumn": "Sentiment Bin",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "Sentiment Positive/Negative",
+            "dataType": "string",
+            "sourceColumn": "Sentiment Positive/Negative",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "Language",
+            "dataType": "string",
+            "sourceColumn": "Language",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "Account Tag",
+            "dataType": "string",
+            "sourceColumn": "Account Tag",
+            "displayOrdinal": 10
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.vw_tweets_normalized",
+            "source": {
+              "query": "SELECT [Master Id],[Mentions],[Hashtags],[Tweet],[Twitter Handle],[User Number],[Sentiment],[Sentiment Bin],[Sentiment Positive/Negative],[Language],[Account Tag] FROM vw_tweets_normalized",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "pbist_twitter.vw_tweets_processed",
+        "description": "All data from pbist_twitter.vw_tweets_processed",
+        "columns": [
+          {
+            "name": "Tweet Id",
+            "dataType": "string",
+            "isNullable": false,
+            "sourceColumn": "Tweet Id"
+          },
+          {
+            "name": "Original Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Original Date",
+            "displayOrdinal": 1
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "displayOrdinal": 2
+          },
+          {
+            "name": "Hours",
+            "dataType": "dateTime",
+            "sourceColumn": "Hours",
+            "displayOrdinal": 3
+          },
+          {
+            "name": "Minutes",
+            "dataType": "dateTime",
+            "sourceColumn": "Minutes",
+            "displayOrdinal": 4
+          },
+          {
+            "name": "Latitude",
+            "dataType": "double",
+            "sourceColumn": "Latitude",
+            "displayOrdinal": 5
+          },
+          {
+            "name": "Longitude",
+            "dataType": "double",
+            "sourceColumn": "Longitude",
+            "displayOrdinal": 6
+          },
+          {
+            "name": "Master Id",
+            "dataType": "string",
+            "sourceColumn": "Master Id",
+            "displayOrdinal": 7
+          },
+          {
+            "name": "Retweet",
+            "dataType": "string",
+            "sourceColumn": "Retweet",
+            "displayOrdinal": 8
+          },
+          {
+            "name": "Username",
+            "dataType": "string",
+            "sourceColumn": "Username",
+            "displayOrdinal": 9
+          },
+          {
+            "name": "User Number",
+            "dataType": "string",
+            "sourceColumn": "User Number",
+            "displayOrdinal": 10
+          },
+          {
+            "name": "Image URL",
+            "dataType": "string",
+            "sourceColumn": "Image URL",
+            "displayOrdinal": 11
+          },
+          {
+            "name": "Author Image URL",
+            "dataType": "string",
+            "sourceColumn": "Author Image URL",
+            "displayOrdinal": 12
+          },
+          {
+            "name": "Direction",
+            "dataType": "string",
+            "sourceColumn": "Direction",
+            "displayOrdinal": 13
+          },
+          {
+            "name": "Favorited",
+            "dataType": "int64",
+            "sourceColumn": "Favorited",
+            "displayOrdinal": 14
+          },
+          {
+            "name": "User Followers",
+            "dataType": "int64",
+            "sourceColumn": "User Followers",
+            "displayOrdinal": 15
+          },
+          {
+            "name": "User Friends",
+            "dataType": "int64",
+            "sourceColumn": "User Friends",
+            "displayOrdinal": 16
+          },
+          {
+            "name": "User Favourites",
+            "dataType": "int64",
+            "sourceColumn": "User Favourites",
+            "displayOrdinal": 17
+          },
+          {
+            "name": "User Total Tweets",
+            "dataType": "int64",
+            "sourceColumn": "User Total Tweets",
+            "displayOrdinal": 18
+          }
+        ],
+        "partitions": [
+          {
+            "name": "pbist_twitter.vw_tweets_processed",
+            "source": {
+              "query": "SELECT [Tweet Id],[Original Date],[Date],[Hours],[Minutes],[Latitude],[Longitude],[Master Id],[Retweet],[Username],[User Number],[Image URL],[Author Image URL],[Direction],[Favorited],[User Followers],[User Friends],[User Favourites],[User Total Tweets] FROM vw_tweets_processed",
+              "dataSource": "SqlServer analytics-db-server.database.windows.net analytics_db"
+            }
+          }
+        ]
+      },
+      {
+        "name": "test3",
+        "partitions": [
+          {
+            "name": "Partition",
+            "source": {
+              "type": "calculated",
+              "expression": "SUM('SalesLT.Customer'[CustomerID])"
+            }
+          }
+        ]
+      },
+      {
+        "name": "test1",
+        "partitions": [
+          {
+            "name": "Partition",
+            "source": {
+              "type": "calculated",
+              "expression": [
+                "EVALUATE (",
+                "  SUMMARIZECOLUMNS (",
+                "    "ErrorLogID Sum", SUM ( 'ErrorLog'[ErrorLogID] ),",
+                "    "ErrorTime Count", COUNT ( 'ErrorLog'[ErrorTime] )",
+                "  )",
+                ")"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "TestAlternateOf",
+        "columns": [
+          {
+            "name": "NameCount",
+            "dataType": "string",
+            "sourceColumn": "NameCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "Name"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "CatalogDescription",
+            "dataType": "string",
+            "sourceColumn": "CatalogDescription",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "CatalogDescription"
+              }
+            }
+          },
+          {
+            "name": "rowguidCount",
+            "dataType": "string",
+            "sourceColumn": "rowguidCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "rowguid"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ModifiedDate",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "ModifiedDate"
+              }
+            }
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TestAlternateOfPartition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #"SqlServer analytics-db-server.database.windows.net analytics_db",",
+                "#"SalesLT_ProductModel" = Source{[Schema="SalesLT",Item="ProductModel"]}[Data],",
+                "#"Selected Columns" = Table.SelectColumns(#"SalesLT_ProductModel", {"Name","CatalogDescription","rowguid","ModifiedDate"}),",
+                "#"Grouped Rows" = Table.Group(#"Selected Columns", {"CatalogDescription","ModifiedDate"}, {{"NameCount", each List.Count([Name])},{"rowguidCount", each List.Count([rowguid])}})",
+                "in ",
+                "#"Grouped Rows""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "TESTALTERNATEOFAGAIN",
+        "columns": [
+          {
+            "name": "ProductModelIDSum",
+            "dataType": "int64",
+            "sourceColumn": "ProductModelIDSum",
+            "dataCategory": "Address",
+            "summarizeBy": "min",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "ProductModelID"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "NameCount",
+            "dataType": "string",
+            "sourceColumn": "NameCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "CatalogDescription"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "CatalogDescriptionCount",
+            "dataType": "string",
+            "sourceColumn": "CatalogDescriptionCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "CatalogDescription"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "rowguidCount",
+            "dataType": "string",
+            "sourceColumn": "rowguidCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "rowguid"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "ModifiedDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ModifiedDate",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.ProductModel",
+                "column": "ModifiedDate"
+              }
+            }
+          }
+        ],
+        "partitions": [
+          {
+            "name": "yhythyhyhyPartition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #"SqlServer analytics-db-server.database.windows.net analytics_db",",
+                "#"SalesLT_ProductModel" = Source{[Schema="SalesLT",Item="ProductModel"]}[Data],",
+                "#"Selected Columns" = Table.SelectColumns(#"SalesLT_ProductModel", {"ProductModelID","Name","CatalogDescription","rowguid","ModifiedDate"}),",
+                "#"Grouped Rows" = Table.Group(#"Selected Columns", {"ModifiedDate"}, {{"ProductModelIDSum", each List.Sum([ProductModelID])},{"NameCount", each List.Count([Name])},{"CatalogDescriptionCount", each List.Count([CatalogDescription])},{"rowguidCount", each List.Count([rowguid])}})",
+                "in ",
+                "#"Grouped Rows""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "TEST5",
+        "columns": [
+          {
+            "name": "tweetidCount",
+            "dataType": "string",
+            "sourceColumn": "tweetidCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "pbist_twitter.tweets_processed",
+                "column": "tweetid"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "dateorigCount",
+            "dataType": "dateTime",
+            "sourceColumn": "dateorigCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "pbist_twitter.tweets_processed",
+                "column": "dateorig"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "hourofdate",
+            "dataType": "dateTime",
+            "sourceColumn": "hourofdate",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "pbist_twitter.tweets_processed",
+                "column": "hourofdate"
+              }
+            }
+          },
+          {
+            "name": "masterid",
+            "dataType": "string",
+            "sourceColumn": "masterid"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TEST5Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #"SqlServer analytics-db-server.database.windows.net analytics_db",",
+                "#"pbist_twitter_tweets_processed" = Source{[Schema="pbist_twitter",Item="tweets_processed"]}[Data],",
+                "#"Selected Columns" = Table.SelectColumns(#"pbist_twitter_tweets_processed", {"tweetid","dateorig","hourofdate","masterid"}),",
+                "#"Grouped Rows" = Table.Group(#"Selected Columns", {"hourofdate","masterid"}, {{"tweetidCount", each List.Count([tweetid])},{"dateorigCount", each List.Count([dateorig])}})",
+                "in ",
+                "#"Grouped Rows""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "TESTDiagram",
+        "columns": [
+          {
+            "name": "SalesOrderIDCount",
+            "dataType": "int64",
+            "sourceColumn": "SalesOrderIDCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.SalesOrderHeader",
+                "column": "SalesOrderID"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "RevisionNumberMax",
+            "dataType": "int64",
+            "sourceColumn": "RevisionNumberMax",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.SalesOrderHeader",
+                "column": "RevisionNumber"
+              },
+              "summarization": "max"
+            }
+          },
+          {
+            "name": "OrderDateCount",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDateCount",
+            "alternateOf": {
+              "baseColumn": {
+                "table": "SalesLT.SalesOrderHeader",
+                "column": "OrderDate"
+              },
+              "summarization": "count"
+            }
+          },
+          {
+            "name": "BillToAddressID",
+            "dataType": "int64",
+            "sourceColumn": "BillToAddressID"
+          },
+          {
+            "name": "CustomerID",
+            "dataType": "int64",
+            "sourceColumn": "CustomerID"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TESTDiagramPartition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let ",
+                "Source = #"SqlServer analytics-db-server.database.windows.net analytics_db",",
+                "#"SalesLT_SalesOrderHeader" = Source{[Schema="SalesLT",Item="SalesOrderHeader"]}[Data],",
+                "#"Selected Columns" = Table.SelectColumns(#"SalesLT_SalesOrderHeader", {"SalesOrderID","RevisionNumber","OrderDate","BillToAddressID","CustomerID"}),",
+                "#"Grouped Rows" = Table.Group(#"Selected Columns", {"BillToAddressID","CustomerID"}, {{"SalesOrderIDCount", each List.Count([SalesOrderID])},{"RevisionNumberMax", each List.Max([RevisionNumber])},{"OrderDateCount", each List.Count([OrderDate])}})",
+                "in ",
+                "#"Grouped Rows""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Test0",
+        "partitions": [
+          {
+            "name": "Partition",
+            "source": {
+              "type": "calculated",
+              "expression": "SUM('SalesLT.Product'[ProductNumber])"
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "0a8cec95-8e97-477d-b54e-ad98213435c1",
+        "fromTable": "pbist_twitter.authorhashtag_graph",
+        "fromColumn": "tweetid",
+        "toTable": "pbist_twitter.tweets_processed",
+        "toColumn": "tweetid"
+      },
+      {
+        "name": "c0197d69-4268-4284-ab95-a0ac1ed76609",
+        "fromTable": "pbist_twitter.authormention_graph",
+        "fromColumn": "tweetid",
+        "toTable": "pbist_twitter.tweets_processed",
+        "toColumn": "tweetid"
+      },
+      {
+        "name": "f998ac72-4390-4072-b5bd-c7967971cd10",
+        "fromTable": "pbist_twitter.hashtag_slicer",
+        "fromColumn": "tweetid",
+        "toTable": "pbist_twitter.tweets_processed",
+        "toColumn": "tweetid"
+      },
+      {
+        "name": "9754e72a-4bd0-475b-a888-8ea1f4cfff05",
+        "fromTable": "pbist_twitter.mention_slicer",
+        "fromColumn": "tweetid",
+        "toTable": "pbist_twitter.tweets_processed",
+        "toColumn": "tweetid"
+      },
+      {
+        "name": "8cdce962-e302-4deb-b431-e91747f4d668",
+        "fromTable": "pbist_twitter.tweets_processed",
+        "fromColumn": "masterid",
+        "toTable": "pbist_twitter.tweets_normalized",
+        "toColumn": "masterid"
+      },
+      {
+        "name": "13e20f74-ed16-46a5-9ec5-aeb057cc1358",
+        "fromTable": "SalesLT.CustomerAddress",
+        "fromColumn": "AddressID",
+        "toTable": "SalesLT.Address",
+        "toColumn": "AddressID"
+      },
+      {
+        "name": "b71019f1-c73e-404d-9f9d-59234893e9f8",
+        "fromTable": "SalesLT.CustomerAddress",
+        "fromColumn": "CustomerID",
+        "toTable": "SalesLT.Customer",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "4c3858b4-05d7-4fbf-9284-9cf89c491808",
+        "fromTable": "SalesLT.Product",
+        "fromColumn": "ProductCategoryID",
+        "toTable": "SalesLT.ProductCategory",
+        "toColumn": "ProductCategoryID"
+      },
+      {
+        "name": "ef2d0d8e-0595-4e2d-b23c-a03f1193b810",
+        "fromTable": "SalesLT.Product",
+        "fromColumn": "ProductModelID",
+        "toTable": "SalesLT.ProductModel",
+        "toColumn": "ProductModelID"
+      },
+      {
+        "name": "352e4790-fd76-4fe7-863f-c14e85ef4b5a",
+        "fromTable": "SalesLT.ProductModelProductDescription",
+        "fromColumn": "ProductDescriptionID",
+        "toTable": "SalesLT.ProductDescription",
+        "toColumn": "ProductDescriptionID"
+      },
+      {
+        "name": "e30215dd-94a8-46c2-bbf2-b32579d20ed9",
+        "fromTable": "SalesLT.ProductModelProductDescription",
+        "fromColumn": "ProductModelID",
+        "toTable": "SalesLT.ProductModel",
+        "toColumn": "ProductModelID"
+      },
+      {
+        "name": "aa22cccf-ebf4-4b7d-a3db-46dd490ab97c",
+        "fromTable": "SalesLT.SalesOrderDetail",
+        "fromColumn": "ProductID",
+        "toTable": "SalesLT.Product",
+        "toColumn": "ProductID"
+      },
+      {
+        "name": "e165945b-cf14-4eff-8209-9a395dc24c98",
+        "fromTable": "SalesLT.SalesOrderDetail",
+        "fromColumn": "SalesOrderID",
+        "toTable": "SalesLT.SalesOrderHeader",
+        "toColumn": "SalesOrderID"
+      },
+      {
+        "name": "bf414367-1f19-4c95-9e62-1b26cc8a9718",
+        "fromTable": "SalesLT.SalesOrderHeader",
+        "fromColumn": "BillToAddressID",
+        "toTable": "SalesLT.Address",
+        "toColumn": "AddressID"
+      },
+      {
+        "name": "d5a6ae11-eb04-4c93-bf25-9946165a21f6",
+        "fromTable": "SalesLT.SalesOrderHeader",
+        "fromColumn": "ShipToAddressID",
+        "toTable": "SalesLT.Address",
+        "toColumn": "AddressID",
+        "isActive": false
+      },
+      {
+        "name": "cdf53b19-5d6d-47a3-9792-fb125783c3d9",
+        "fromTable": "SalesLT.SalesOrderHeader",
+        "fromColumn": "CustomerID",
+        "toTable": "SalesLT.Customer",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "b8bb3103-2a0a-4bbd-880e-fb9076e6d3bd",
+        "fromTable": "TEST5",
+        "fromColumn": "masterid",
+        "toTable": "pbist_twitter.tweets_normalized",
+        "toColumn": "masterid"
+      },
+      {
+        "name": "0c26bfe4-f367-480e-922d-cef85178ba13",
+        "fromTable": "TESTDiagram",
+        "fromColumn": "BillToAddressID",
+        "toTable": "SalesLT.Address",
+        "toColumn": "AddressID"
+      },
+      {
+        "name": "be5f71c5-9837-43bf-83b8-075359e64595",
+        "fromTable": "TESTDiagram",
+        "fromColumn": "CustomerID",
+        "toTable": "SalesLT.Customer",
+        "toColumn": "CustomerID"
+      },
+      {
+        "name": "f7d2084c-c526-41e9-86de-4f46fedb643c",
+        "fromTable": "SalesLT.CustomerAddress",
+        "fromColumn": "CustomerID",
+        "toTable": "SalesLT.ProductDescription",
+        "toColumn": "ProductDescriptionID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ASW-DEFAULT-DIAGRAM",
+        "value": "{"Version":1,"Name":"default","Tables":[{"TableName":"SalesLT.SalesOrderHeader","X":910,"Y":910,"Z":42,"Width":225,"Height":275},{"TableName":"SalesLT.SalesOrderDetail","X":1210,"Y":910,"Z":1,"Width":225,"Height":275},{"TableName":"SalesLT.Address","X":910,"Y":1210,"Z":2,"Width":225,"Height":275},{"TableName":"SalesLT.Customer","X":910,"Y":610,"Z":3,"Width":225,"Height":275},{"TableName":"SalesLT.CustomerAddress","X":1210,"Y":1210,"Z":4,"Width":225,"Height":275},{"TableName":"SalesLT.Product","X":1210,"Y":610,"Z":5,"Width":225,"Height":275},{"TableName":"SalesLT.ProductModel","X":610,"Y":610,"Z":6,"Width":225,"Height":275},{"TableName":"SalesLT.ProductCategory","X":610,"Y":910,"Z":7,"Width":225,"Height":275},{"TableName":"SalesLT.ProductModelProductDescription","X":610,"Y":1210,"Z":8,"Width":225,"Height":275},{"TableName":"SalesLT.ProductDescription","X":610,"Y":1510,"Z":9,"Width":225,"Height":275},{"TableName":"pbist_twitter.tweets_processed","X":310,"Y":310,"Z":10,"Width":225,"Height":275},{"TableName":"pbist_twitter.mention_slicer","X":610,"Y":310,"Z":11,"Width":225,"Height":275},{"TableName":"pbist_twitter.authorhashtag_graph","X":310,"Y":610,"Z":12,"Width":225,"Height":275},{"TableName":"pbist_twitter.authormention_graph","X":910,"Y":310,"Z":13,"Width":225,"Height":275},{"TableName":"pbist_twitter.hashtag_slicer","X":310,"Y":910,"Z":14,"Width":225,"Height":275},{"TableName":"pbist_twitter.tweets_normalized","X":1210,"Y":310,"Z":41,"Width":225,"Height":275},{"TableName":"TEST5","X":1510,"Y":310,"Z":40,"Width":225,"Height":275},{"TableName":"pbist_twitter.twitter_query_readable","X":310,"Y":1210,"Z":15,"Width":225,"Height":275},{"TableName":"pbist_twitter.twitter_query_details","X":310,"Y":1510,"Z":16,"Width":225,"Height":275},{"TableName":"pbist_twitter.twitter_query","X":910,"Y":1510,"Z":17,"Width":225,"Height":275},{"TableName":"pbist_twitter.vw_configuration","X":1210,"Y":1510,"Z":18,"Width":225,"Height":275},{"TableName":"BuildVersion","X":1510,"Y":610,"Z":19,"Width":225,"Height":275},{"TableName":"sysdiagrams","X":1510,"Y":910,"Z":20,"Width":225,"Height":275},{"TableName":"pbist_twitter.ssas_jobs","X":1510,"Y":1210,"Z":21,"Width":225,"Height":275},{"TableName":"pbist_twitter.minimum_tweets","X":1510,"Y":1510,"Z":22,"Width":225,"Height":275},{"TableName":"pbist_twitter.vw_hashtag_slicer","X":10,"Y":10,"Z":23,"Width":225,"Height":275},{"TableName":"SalesLT.vGetAllCategories","X":10,"Y":310,"Z":24,"Width":225,"Height":275},{"TableName":"pbist_twitter.entityinitialcount","X":10,"Y":610,"Z":25,"Width":225,"Height":275},{"TableName":"pbist_twitter.configuration","X":10,"Y":910,"Z":26,"Width":225,"Height":275},{"TableName":"pbist_twitter.vw_minimum_tweets","X":10,"Y":1210,"Z":27,"Width":225,"Height":275},{"TableName":"pbist_twitter.vw_tweets_normalized","X":10,"Y":1510,"Z":28,"Width":225,"Height":275},{"TableName":"pbist_twitter.vw_tweets_processed","X":10,"Y":1810,"Z":29,"Width":225,"Height":275},{"TableName":"test3","X":310,"Y":10,"Z":30,"Width":225,"Height":275},{"TableName":"test1","X":310,"Y":1810,"Z":31,"Width":225,"Height":275},{"TableName":"SalesLT.vProductAndDescription","X":610,"Y":10,"Z":32,"Width":225,"Height":275},{"TableName":"SalesLT.vProductModelCatalogDescription","X":610,"Y":1810,"Z":33,"Width":225,"Height":275},{"TableName":"pbist_twitter.vw_authorhashtag_graph","X":910,"Y":10,"Z":34,"Width":225,"Height":275},{"TableName":"TestAlternateOf","X":910,"Y":1810,"Z":35,"Width":225,"Height":275},{"TableName":"   ","X":1210,"Y":10,"Z":36,"Width":225,"Height":275},{"TableName":"TESTALTERNATEOFAGAIN","X":1210,"Y":1810,"Z":37,"Width":225,"Height":275},{"TableName":"pbist_twitter.vw_authormention_graph","X":1510,"Y":10,"Z":38,"Width":225,"Height":275},{"TableName":"pbist_twitter.vw_mention_slicer","X":1510,"Y":1810,"Z":39,"Width":225,"Height":275},{"TableName":"TESTDiagram","X":200,"Y":200,"Z":42,"Width":225,"Height":275}]}"
+      }
+    ]
+  }
+}
